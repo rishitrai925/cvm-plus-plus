@@ -1,0 +1,8 @@
+// Boolean logic
+let t = true;
+let f = false;
+print t == true;
+print t != f;
+print !f;
+print 10 > 5;
+print 10 <= 5;

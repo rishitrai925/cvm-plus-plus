@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CVM++ — Custom Virtual Machine in C++
 
 > A lightweight, custom scripting language with its own **Lexer**, **Parser**, **Bytecode Compiler**, and **Stack-Based Virtual Machine**, all built from scratch in C++17.
@@ -180,6 +179,3 @@ cvm++/
 
 ## 📚 Inspired By
 - [Crafting Interpreters](https://craftinginterpreters.com/) by Robert Nystrom
-=======
-# cvm-plus-plus
->>>>>>> 82bb408cde79456bf0b8a10aee7f463ce7bdbddf
