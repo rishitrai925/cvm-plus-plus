@@ -1,4 +1,5 @@
 #include "lexer.h"
+#include "parser.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -7,9 +8,22 @@ void run(const std::string& source) {
     Lexer lexer(source);
     std::vector<Token> tokens = lexer.tokenize();
 
+    std::cout << "[DEBUG] === Tokens ===\n";
     for (const Token& token : tokens) {
         std::cout << "[" << tokenTypeToString(token.type) << " | '" 
                   << token.lexeme << "' | Line " << token.line << "]\n";
+    }
+
+    try {
+        Parser parser(tokens);
+        std::vector<std::unique_ptr<ASTNode>> ast = parser.parseProgram();
+        
+        std::cout << "\n[DEBUG] === AST ===\n";
+        for (const auto& stmt : ast) {
+            stmt->print();
+        }
+    } catch (const ParseError& e) {
+        std::cerr << "\n" << e.what() << "\n";
     }
 }
 

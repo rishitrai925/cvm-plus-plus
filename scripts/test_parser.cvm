@@ -1,0 +1,16 @@
+let x = 10;
+let y = 20;
+let sum = x + y;
+print sum;
+
+if (sum > 25) {
+    print 1;
+} else {
+    print 0;
+}
+
+let i = 0;
+while (i < 5) {
+    print i;
+    i = i + 1;
+}
