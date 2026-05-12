@@ -1,0 +1,8 @@
+// Math operations
+let a = 100;
+let b = 25;
+print a + b;
+print a - b;
+print a * 2;
+print a / b;
+print -a;
