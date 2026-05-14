@@ -373,6 +373,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\projects\cvm++\src\parser.cpp" />
     <ClCompile Include="D:\projects\cvm++\src\compiler.cpp" />
     <ClCompile Include="D:\projects\cvm++\src\vm.cpp" />
+    <ClCompile Include="D:\projects\cvm++\src\opcode.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

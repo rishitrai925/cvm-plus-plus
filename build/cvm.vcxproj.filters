@@ -16,6 +16,9 @@
     <ClCompile Include="D:\projects\cvm++\src\vm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\projects\cvm++\src\opcode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\projects\cvm++\CMakeLists.txt" />

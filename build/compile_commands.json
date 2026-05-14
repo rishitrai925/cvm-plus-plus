@@ -1,0 +1,38 @@
+[
+{
+  "directory": "D:/projects/cvm++/build",
+  "command": "D:\\msy2\\ucrt64\\bin\\g++.exe  -ID:\\projects\\cvm++\\include -g -std=gnu++17 -o CMakeFiles\\cvm.dir\\src\\main.cpp.obj -c D:\\projects\\cvm++\\src\\main.cpp",
+  "file": "D:/projects/cvm++/src/main.cpp",
+  "output": "CMakeFiles/cvm.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/projects/cvm++/build",
+  "command": "D:\\msy2\\ucrt64\\bin\\g++.exe  -ID:\\projects\\cvm++\\include -g -std=gnu++17 -o CMakeFiles\\cvm.dir\\src\\lexer.cpp.obj -c D:\\projects\\cvm++\\src\\lexer.cpp",
+  "file": "D:/projects/cvm++/src/lexer.cpp",
+  "output": "CMakeFiles/cvm.dir/src/lexer.cpp.obj"
+},
+{
+  "directory": "D:/projects/cvm++/build",
+  "command": "D:\\msy2\\ucrt64\\bin\\g++.exe  -ID:\\projects\\cvm++\\include -g -std=gnu++17 -o CMakeFiles\\cvm.dir\\src\\parser.cpp.obj -c D:\\projects\\cvm++\\src\\parser.cpp",
+  "file": "D:/projects/cvm++/src/parser.cpp",
+  "output": "CMakeFiles/cvm.dir/src/parser.cpp.obj"
+},
+{
+  "directory": "D:/projects/cvm++/build",
+  "command": "D:\\msy2\\ucrt64\\bin\\g++.exe  -ID:\\projects\\cvm++\\include -g -std=gnu++17 -o CMakeFiles\\cvm.dir\\src\\compiler.cpp.obj -c D:\\projects\\cvm++\\src\\compiler.cpp",
+  "file": "D:/projects/cvm++/src/compiler.cpp",
+  "output": "CMakeFiles/cvm.dir/src/compiler.cpp.obj"
+},
+{
+  "directory": "D:/projects/cvm++/build",
+  "command": "D:\\msy2\\ucrt64\\bin\\g++.exe  -ID:\\projects\\cvm++\\include -g -std=gnu++17 -o CMakeFiles\\cvm.dir\\src\\vm.cpp.obj -c D:\\projects\\cvm++\\src\\vm.cpp",
+  "file": "D:/projects/cvm++/src/vm.cpp",
+  "output": "CMakeFiles/cvm.dir/src/vm.cpp.obj"
+},
+{
+  "directory": "D:/projects/cvm++/build",
+  "command": "D:\\msy2\\ucrt64\\bin\\g++.exe  -ID:\\projects\\cvm++\\include -g -std=gnu++17 -o CMakeFiles\\cvm.dir\\src\\opcode.cpp.obj -c D:\\projects\\cvm++\\src\\opcode.cpp",
+  "file": "D:/projects/cvm++/src/opcode.cpp",
+  "output": "CMakeFiles/cvm.dir/src/opcode.cpp.obj"
+}
+]
