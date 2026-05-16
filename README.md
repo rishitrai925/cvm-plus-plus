@@ -1,181 +1,92 @@
-# CVM++ — Custom Virtual Machine in C++
+# CVM++ (Custom Virtual Machine in C++)
 
-> A lightweight, custom scripting language with its own **Lexer**, **Parser**, **Bytecode Compiler**, and **Stack-Based Virtual Machine**, all built from scratch in C++17.
+CVM++ is a lightweight, fully functional custom scripting language and stack-based Virtual Machine built entirely in C++. It features a complete pipeline from raw source code to bytecode execution.
 
-## 🏗️ Architecture
+## 🚀 Overview
 
-```
-Source Code (.cvm)
-       │
-       ▼
-   ┌────────┐
-   │ Lexer  │  ──►  Tokens
-   └────────┘
-       │
-       ▼
-   ┌────────┐
-   │ Parser │  ──►  Abstract Syntax Tree (AST)
-   └────────┘
-       │
-       ▼
-   ┌──────────┐
-   │ Compiler │  ──►  Bytecode (Opcodes)
-   └──────────┘
-       │
-       ▼
-   ┌──────────────────┐
-   │ Virtual Machine  │  ──►  Output
-   │  (Stack-Based)   │
-   └──────────────────┘
-```
+CVM++ parses custom scripts (`.cvm` files) and translates them into an Abstract Syntax Tree (AST), which is then compiled into proprietary bytecode (opcodes) and executed sequentially by a stack-based runtime engine.
 
-## 📦 Features
+## 🏗 Architecture
 
-- **Custom scripting language** with C-like syntax
-- **Lexer/Tokenizer** — converts source text to tokens
-- **Recursive Descent Parser** — builds an Abstract Syntax Tree
-- **Bytecode Compiler** — compiles AST to proprietary opcodes
-- **Stack-Based VM** — executes bytecode with a 23-instruction ISA
-- **REPL Mode** — interactive shell with persistent state
-- **Debug Mode** — inspect tokens, AST, and bytecode at every stage
+The project consists of four primary modules:
+1. **Lexer (Tokenizer)**: Scans raw source code and converts it into a stream of tokens.
+2. **Parser (Recursive Descent)**: Constructs an Abstract Syntax Tree (AST) following defined BNF grammar.
+3. **Compiler**: Translates the AST into bytecode chunks, handling variables, operator precedence, and backpatching for control flow offsets.
+4. **Virtual Machine**: A stack-based runtime environment that executes opcodes linearly, managing global variables, execution stacks, and error handling.
 
-## 🚀 Building
+## ✨ Features
 
-### Prerequisites
-- **g++** (GCC 10+ recommended) with C++17 support
-- **CMake 3.15+** (optional)
+- **Variables**: Dynamic variables declared with the `let` keyword.
+- **Data Types**: Integers and Booleans (`true`, `false`).
+- **Operators**: 
+  - Arithmetic: `+`, `-`, `*`, `/`
+  - Comparison: `<`, `>`, `<=`, `>=`, `==`, `!=`
+  - Logical: `!` (NOT)
+- **Control Flow**: 
+  - `if / else` conditional branches.
+  - `while` loops.
+- **I/O**: Read from stdin with `input` and print to stdout with `print`.
+- **REPL Interface**: Interactively run CVM++ scripts line-by-line.
 
-### Build with CMake
+## 🛠 Building the Project
+
+Ensure you have a C++17 compliant compiler and CMake (3.15+) installed.
+
 ```bash
-mkdir build && cd build
+mkdir build
+cd build
 cmake ..
 cmake --build .
 ```
 
-### Build without CMake (direct g++)
+## 💻 Usage
+
+### 1. REPL Mode (Interactive)
+Simply run the executable with no arguments:
 ```bash
-g++ -std=c++17 -Wall -Wextra -Iinclude src/main.cpp src/lexer.cpp src/parser.cpp src/compiler.cpp src/vm.cpp -o cvm
+./build/cvm
 ```
+Inside the REPL, type `debug on` or `debug off` to toggle detailed compilation logs (tokens, AST, bytecode).
 
-## 📖 Usage
-
-### Run a Script
+### 2. File Runner Mode
+Pass a script file to execute it sequentially:
 ```bash
-./cvm scripts/fibonacci.cvm
+./build/cvm scripts/fibonacci.cvm
 ```
 
-### Interactive REPL
+### 3. Debug Flags
+You can inspect the compiler's internal pipeline at runtime using flags:
+- `--tokens`: Prints the token stream from the Lexer.
+- `--ast`: Prints the Abstract Syntax Tree.
+- `--bytecode`: Prints the disassembled opcodes.
+- `--debug`: Enables all the above flags.
+
+Example:
 ```bash
-./cvm
-CVM++ v1.0 — Interactive Mode
-Type 'exit' to quit.
-
->>> let x = 42;
->>> print x;
-42
->>> print x * 2 + 8;
-92
->>> exit
-Bye!
+./build/cvm --debug scripts/while_loop.cvm
 ```
 
-### Debug Flags
-```bash
-./cvm --tokens scripts/hello.cvm     # Show token list
-./cvm --ast scripts/hello.cvm        # Show AST tree
-./cvm --bytecode scripts/hello.cvm   # Show bytecode disassembly
-./cvm --debug scripts/hello.cvm      # Show everything
-```
+## 📜 Example Script: Fibonacci Sequence
 
-## 📝 Language Reference
+```
+let a = 0;
+let b = 1;
+let n = 10;
+let i = 0;
 
-### Data Types
-| Type | Examples | Internal |
-|------|----------|----------|
-| Integer | `0`, `42`, `-7` | `int64_t` |
-| Boolean | `true`, `false` | `int64_t` (1/0) |
-
-### Variables
-```
-let x = 10;
-let y = x + 20;
-x = 42;           // reassignment
-```
-
-### Arithmetic
-```
-print 10 + 20;     // 30
-print 100 - 25;    // 75
-print 6 * 7;       // 42
-print 100 / 4;     // 25
-print -42;         // -42
-```
-
-### Comparisons & Boolean Logic
-```
-print 10 == 10;    // 1 (true)
-print 10 != 20;    // 1 (true)
-print 5 < 10;      // 1 (true)
-print 5 > 10;      // 0 (false)
-print !true;       // 0 (false)
-```
-
-### Control Flow
-```
-if (x > 10) {
-    print 1;
-} else {
-    print 0;
-}
-
-while (i < 10) {
-    print i;
+while (i < n) {
+    print a;
+    let temp = a + b;
+    a = b;
+    b = temp;
     i = i + 1;
 }
 ```
-
-### I/O
-```
-print 42;          // Output: 42
-input x;           // Read integer from stdin into x
-```
-
-### Comments
-```
-// This is a line comment
-let x = 10; // inline comment
-```
+*Output: `0 1 1 2 3 5 8 13 21 34`*
 
 ## 📂 Project Structure
 
-```
-cvm++/
-├── CMakeLists.txt              # Build configuration
-├── README.md                   # This file
-├── include/
-│   ├── token.h                 # Token types & Token struct
-│   ├── value.h                 # Runtime value type
-│   ├── lexer.h                 # Lexer declarations
-│   ├── ast.h                   # AST node definitions
-│   ├── parser.h                # Parser declarations
-│   ├── opcode.h                # Opcode enum & Chunk struct
-│   ├── compiler.h              # Compiler declarations
-│   └── vm.h                    # VM declarations
-├── src/
-│   ├── main.cpp                # Entry point (REPL + file runner)
-│   ├── lexer.cpp               # Lexer implementation
-│   ├── parser.cpp              # Parser implementation
-│   ├── compiler.cpp            # Compiler implementation
-│   └── vm.cpp                  # VM implementation
-└── scripts/
-    ├── hello.cvm               # Basic demo
-    ├── arithmetic.cvm          # Math operations
-    ├── variables.cvm           # Variable usage
-    ├── booleans.cvm            # Boolean logic
-    ├── control_flow.cvm        # If/else & while
-    ├── fibonacci.cvm           # Fibonacci sequence
-    └── input_output.cvm        # I/O demo
-```
-
-## 📚 Inspired By
-- [Crafting Interpreters](https://craftinginterpreters.com/) by Robert Nystrom
+- `include/`: Header files defining the core classes.
+- `src/`: C++ implementations for the Lexer, Parser, Compiler, and VM.
+- `scripts/`: Assorted `.cvm` test scripts demonstrating language features.
+- `docs/`: Design notes, roadmap, and reference materials.
