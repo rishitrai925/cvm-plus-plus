@@ -1,4 +1,0 @@
-{
-    "cmake.generator": "MinGW Makefiles",
-    "cmake.buildTool": "mingw32-make"
-}
