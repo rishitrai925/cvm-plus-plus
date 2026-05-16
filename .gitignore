@@ -1,0 +1,10 @@
+# Build directory
+build/
+
+# VS Code workspace
+.vscode/
+
+# CMake / Make cache
+.cache/
+CMakeCache.txt
+CMakeFiles/
