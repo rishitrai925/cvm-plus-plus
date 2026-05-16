@@ -145,6 +145,8 @@ CMakeFiles/cvm.dir/src/main.cpp.obj: D:\projects\cvm++\src\main.cpp \
  D:/msy2/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
  D:/msy2/ucrt64/include/stdint.h \
  D:/msy2/ucrt64/include/c++/15.2.0/stdexcept \
+ D:\projects\cvm++\include/compiler.h D:\projects\cvm++\include/opcode.h \
+ D:\projects\cvm++\include/vm.h \
  D:/msy2/ucrt64/include/c++/15.2.0/iostream \
  D:/msy2/ucrt64/include/c++/15.2.0/ostream \
  D:/msy2/ucrt64/include/c++/15.2.0/bits/ostream.h \
