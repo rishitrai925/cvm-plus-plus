@@ -1,13 +1,12 @@
-// Fibonacci sequence
 let a = 0;
 let b = 1;
 let n = 10;
-let count = 0;
+let i = 0;
 
-while (count < n) {
+while (i < n) {
     print a;
-    let next = a + b;
+    let temp = a + b;
     a = b;
-    b = next;
-    count = count + 1;
+    b = temp;
+    i = i + 1;
 }

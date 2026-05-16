@@ -1,6 +1,8 @@
-// Variable usage
-let x = 10;
-let y = x * 5;
-x = y + 2;
+let x = 100;
 print x;
+let y = x + 50;
+print y;
+x = 200;
+print x;
+y = x * 2;
 print y;

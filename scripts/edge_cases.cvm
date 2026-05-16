@@ -1,0 +1,4 @@
+// This script will cause a runtime error: Division by zero
+let x = 10;
+let y = 0;
+print x / y;

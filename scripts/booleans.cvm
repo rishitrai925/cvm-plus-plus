@@ -1,8 +1,10 @@
-// Boolean logic
 let t = true;
 let f = false;
+print t;
+print f;
+print !t;
+print !f;
 print t == true;
 print t != f;
-print !f;
-print 10 > 5;
-print 10 <= 5;
+print 1 == 1;
+print 1 != 2;
